@@ -19,7 +19,7 @@ function addProducts() {
 function sum( value,  quantity) {
     const amountElement = document.getElementById("valor-total");
     const amount = amountElement.innerText.replace(/R\$/g, "").trim();
-    amountElement.innerText = `R$${parseInt(amount) + (parseInt(value) * parseInt(quantity))}`;
+    amountElement.innerText = `R$ ${parseInt(amount) + (parseInt(value) * parseInt(quantity))}`;
 }
 
 function addCart( item, value, quantity ) {
@@ -27,14 +27,15 @@ function addCart( item, value, quantity ) {
 
     listItens.innerHTML += `
         <section class="carrinho__produtos__produto">
-            <span class="texto-azul">${quantity}x</span> ${item} <span class="texto-azul">R$${value}</span>
+            <span class="texto-azul">${quantity}x</span> ${item} <span class="texto-azul">R$ ${value}</span>
         </section>
     `;
+    document.getElementById("quantidade").value = "";
 }
 
 function cleanProducts() {
     const listItens = document.querySelectorAll('section[id="lista-produtos"] > section');
-    document.getElementById("valor-total").innerText = 'R$0';
+    document.getElementById("valor-total").innerText = 'R$ 0';
     document.getElementById("quantidade").value = "";
     listItens.forEach(element => {
         element.remove();
